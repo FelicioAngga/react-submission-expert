@@ -1,0 +1,16 @@
+.header-leaderboard {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.header-leaderboard p {
+  font-size: 1.2rem;
+}
+
+.leaderboard-main-container {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}

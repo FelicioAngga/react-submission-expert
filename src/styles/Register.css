@@ -1,0 +1,17 @@
+.btn-register{
+  padding: 12px 8px;
+  width: 100%;
+  margin-top: 32px;
+  border-radius: 24px;
+  border: 2px darkslateblue solid;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: ease-in-out .3s;
+  background-color: transparent;
+}
+
+.btn-register:hover{
+  background-color: darkblue;
+  color: white;
+}

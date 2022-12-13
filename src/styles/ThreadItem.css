@@ -1,0 +1,68 @@
+.thread-item-container {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+}
+
+p {
+  margin: 0;
+}
+
+.title {
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+
+.body-container {
+  margin-top: 12px;
+}
+
+.body {
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.category {
+  border-radius: 8px;
+  padding: 6px;
+  width: fit-content;
+  margin: 12px 0;
+  font-size: 14px;
+  transition: ease-in-out .4s;
+}
+
+.thread-information {
+  display: flex;
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.btn-thread, .comments {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.info-count {
+  font-size: 14px;
+}
+
+.upvote, .downvote {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.created-at {
+  margin: 0;
+}
+
+.ownerName {
+  font-weight: 600;
+  font-size: 14px;
+}

@@ -1,0 +1,38 @@
+form {
+  padding: 15px 40px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-top: 0;
+}
+
+input {
+  padding: 12px 8px;
+  display: block;
+  width: 100%;
+  margin-top: 24px;
+  border-radius: 12px;
+  border: 2px darkblue solid;
+}
+
+.btn-login{
+  padding: 12px 8px;
+  width: 100%;
+  margin-top: 32px;
+  border-radius: 24px;
+  border: 2px darkslateblue solid;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: ease-in-out .3s;
+  background-color: transparent;
+}
+
+.btn-login:hover{
+  background-color: darkblue;
+  color: white;
+}
