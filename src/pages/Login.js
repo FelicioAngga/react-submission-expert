@@ -2,19 +2,15 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { asyncSetAuthUser } from '../states/authUser/action';
-import useInput from '../hooks/useInput';
 import '../styles/Login.css';
+import LoginInput from '../components/LoginInput';
 
 function Login() {
   const { authUser } = useSelector((states) => states);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [email, onEmailChange] = useInput('');
-  const [password, onPasswordChange] = useInput('');
-
-  const onLogin = (e) => {
-    e.preventDefault();
+  const onLogin = ({ email, password }) => {
     dispatch(asyncSetAuthUser({ email, password }));
   };
 
@@ -23,16 +19,14 @@ function Login() {
   }, [authUser, navigate]);
 
   return (
-    <form onSubmit={(e) => onLogin(e)}>
+    <div className="login">
       <h1>Login</h1>
-      <input type="email" placeholder="Email" value={email} onChange={onEmailChange} />
-      <input type="password" placeholder="Password" value={password} onChange={onPasswordChange} />
-      <button type="submit" className="btn-login">Login</button>
+      <LoginInput login={onLogin} />
       <p>
         Belum punya akun?
-        <Link to="/register" className="register">Daftar disini</Link>
+        <Link to="/register">Daftar disini</Link>
       </p>
-    </form>
+    </div>
   );
 }
 

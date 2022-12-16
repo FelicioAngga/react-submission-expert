@@ -26,12 +26,8 @@ function asyncPreloadProcess() {
       dispatch(setAuthUserActionCreator(authUser));
     } catch (error) {
       dispatch(setAuthUserActionCreator(null));
-      if (error.message === 'Token maximum age exceeded') {
-        alert('Your session already end, please login again');
-        api.putAccessToken('');
-      } else {
-        alert(error.message);
-      }
+      if (error.message === 'Token maximum age exceeded') api.putAccessToken('');
+      alert(error.message);
     } finally {
       dispatch(setIsPreloadActionCreator(false));
     }
