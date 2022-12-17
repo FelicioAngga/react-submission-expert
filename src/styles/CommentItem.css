@@ -17,6 +17,7 @@
 
 .comment-avatar {
   width: 30px;
+  border-radius: 50%;
 }
 
 .comment-content {
@@ -26,6 +27,12 @@
 .votes-container {
   margin-top: 8px;
   display: flex;
+}
+
+.upvote, .downvote {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
 }
 
 .btn-comment {
