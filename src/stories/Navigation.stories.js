@@ -1,3 +1,4 @@
+import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import Navigation from '../components/Navigation';
@@ -19,8 +20,8 @@ const stories = {
 
 export default stories;
 
-const WithTypeNotLoggedIn = () => (
-  <Navigation />
-);
+function WithTypeNotLoggedIn() {
+  return <Navigation />;
+}
 
 export { WithTypeNotLoggedIn };

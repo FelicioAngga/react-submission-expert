@@ -1,3 +1,4 @@
+import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import CommentItem from '../components/CommentItem';
@@ -19,22 +20,24 @@ const stories = {
 
 export default stories;
 
-const TemplateStory = (args) => <CommentItem {...args} />;
+function TemplateStory(args) {
+  return <CommentItem {...args} />;
+}
 
 const CommentItemDefault = TemplateStory.bind({});
 
 CommentItemDefault.args = {
-  id: "comment-1",
-  content: "Ini adalah komentar pertama",
-  createdAt: "2021-06-21T07:00:00.000Z",
+  id: 'comment-1',
+  content: 'Ini adalah komentar pertama',
+  createdAt: '2021-06-21T07:00:00.000Z',
   owner: {
-    id: "users-1",
-    name: "John Doe",
-    avatar: "https://ui-avatars.com/api/?name=cio"
+    id: 'users-1',
+    name: 'John Doe',
+    avatar: 'https://ui-avatars.com/api/?name=cio',
   },
   upVotesBy: [],
   downVotesBy: [],
-  threadId: 'thread-blabla'
+  threadId: 'thread-blabla',
 };
 
 export { CommentItemDefault };

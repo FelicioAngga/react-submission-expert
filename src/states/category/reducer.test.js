@@ -1,5 +1,14 @@
 import categoriesReducer from './reducer';
 
+/**
+ * test scenario for categoriesReducer
+ *
+ *  - categoriesReducer function
+ *  - should return the initial state when given by unknown action
+ *  - should return categories when given by RECEIVE_CATEGORIES action
+ *  - should return selected category and categories when given by SET_CATEGORY action
+*/
+
 describe('categories Reducer function', () => {
   it('should return the initial state when given by unknown action', () => {
     const initialState = null;
@@ -14,7 +23,7 @@ describe('categories Reducer function', () => {
       type: 'RECEIVE_CATEGORIES',
       payload: {
         categories: [
-          'react', 'electron', 'C++'
+          'react', 'electron', 'C++',
         ],
         selectedCategory: null,
       },
@@ -26,7 +35,7 @@ describe('categories Reducer function', () => {
   it('should return selected category and categories when given by SET_CATEGORY action', () => {
     const initialState = {
       categories: [
-        'react', 'electron', 'C++'
+        'react', 'electron', 'C++',
       ],
     };
     const action = {
@@ -34,9 +43,9 @@ describe('categories Reducer function', () => {
       payload: {
         selectedCategory: 'electron',
       },
-    }
-    const selectedCategory = action.payload.selectedCategory;
-    const categories = initialState.categories;
+    };
+    const { selectedCategory } = action.payload;
+    const { categories } = initialState;
     const nextState = categoriesReducer(initialState, action);
     expect(nextState).toEqual({ categories, selectedCategory });
   });

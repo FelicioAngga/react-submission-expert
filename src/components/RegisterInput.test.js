@@ -1,7 +1,8 @@
-import RegisterInput from "./RegisterInput";
+import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
+import RegisterInput from './RegisterInput';
 
 describe('Register Input', () => {
   it('should handle name typing correctly', () => {
