@@ -1,5 +1,15 @@
 import commentsReducer from './reducer';
 
+/**
+ * test scenario for commentsReducer
+ *  - commentsReducer function
+ *  - should return the initial state when given by unknown action
+ *  - should return comments when given by RECEIVE_COMMENTS action
+ *  - should return comments with new comments when given by ADD_COMMENT
+ *  - should return comment with toggled up vote when given by TOGGLE_UPVOTE_COMMENT action
+ *  - should return comment with toggled down vote when given by TOGGLE_DOWNVOTE_COMMENT action
+*/
+
 describe('comment reducer function', () => {
   it('should return the initial state when given by unknown action', () => {
     const initialState = [];
@@ -14,52 +24,52 @@ describe('comment reducer function', () => {
       type: 'RECEIVE_COMMENTS',
       payload: {
         comments: [{
-          "id": "comment-1",
-          "content": "Ini adalah komentar pertama",
-          "createdAt": "2021-06-21T07:00:00.000Z",
-          "owner": {
-            "id": "users-1",
-            "name": "John Doe",
-            "avatar": "https://generated-image-url.jpg"
+          id: 'comment-1',
+          content: 'Ini adalah komentar pertama',
+          createdAt: '2021-06-21T07:00:00.000Z',
+          owner: {
+            id: 'users-1',
+            name: 'John Doe',
+            avatar: 'https://generated-image-url.jpg',
           },
-          "upVotesBy": [],
-          "downVotesBy": []
+          upVotesBy: [],
+          downVotesBy: [],
         }],
       },
     };
 
     const nextState = commentsReducer(initialState, action);
     expect(nextState).toEqual(action.payload.comments);
-  })
+  });
 
   it('should return comments with new comments when given by ADD_COMMENT', () => {
     const initialState = [{
-      "id": "comment-1",
-      "content": "Ini adalah komentar pertama",
-      "createdAt": "2021-06-21T07:00:00.000Z",
-      "owner": {
-        "id": "users-1",
-        "name": "John Doe",
-        "avatar": "https://generated-image-url.jpg"
+      id: 'comment-1',
+      content: 'Ini adalah komentar pertama',
+      createdAt: '2021-06-21T07:00:00.000Z',
+      owner: {
+        id: 'users-1',
+        name: 'John Doe',
+        avatar: 'https://generated-image-url.jpg',
       },
-      "upVotesBy": [],
-      "downVotesBy": []
-    }]
+      upVotesBy: [],
+      downVotesBy: [],
+    }];
     const action = {
       type: 'ADD_COMMENT',
       payload: {
         comment: {
-          "id": "comment-2",
-          "content": "Ini adalah komentar kedua",
-          "createdAt": "2021-06-21T07:00:00.000Z",
-          "owner": {
-            "id": "users-2",
-            "name": "Cios Does",
-            "avatar": "https://generated-image-url.jpg"
+          id: 'comment-2',
+          content: 'Ini adalah komentar kedua',
+          createdAt: '2021-06-21T07:00:00.000Z',
+          owner: {
+            id: 'users-2',
+            name: 'Cios Does',
+            avatar: 'https://generated-image-url.jpg',
           },
-          "upVotesBy": [],
-          "downVotesBy": []
-        }
+          upVotesBy: [],
+          downVotesBy: [],
+        },
       },
     };
 
@@ -69,16 +79,16 @@ describe('comment reducer function', () => {
 
   it('should return comment with toggled up vote when given by TOGGLE_UPVOTE_COMMENT action', () => {
     const initialState = [{
-      "id": "comment-2",
-      "content": "Ini adalah komentar kedua",
-      "createdAt": "2021-06-21T07:00:00.000Z",
-      "owner": {
-        "id": "users-2",
-        "name": "Cios Does",
-        "avatar": "https://generated-image-url.jpg"
+      id: 'comment-2',
+      content: 'Ini adalah komentar kedua',
+      createdAt: '2021-06-21T07:00:00.000Z',
+      owner: {
+        id: 'users-2',
+        name: 'Cios Does',
+        avatar: 'https://generated-image-url.jpg',
       },
-      "upVotesBy": [],
-      "downVotesBy": []
+      upVotesBy: [],
+      downVotesBy: [],
     }];
 
     const action = {
@@ -98,16 +108,16 @@ describe('comment reducer function', () => {
 
   it('should return comment with toggled down vote when given by TOGGLE_DOWNVOTE_COMMENT action', () => {
     const initialState = [{
-      "id": "comment-2",
-      "content": "Ini adalah komentar kedua",
-      "createdAt": "2021-06-21T07:00:00.000Z",
-      "owner": {
-        "id": "users-2",
-        "name": "Cios Does",
-        "avatar": "https://generated-image-url.jpg"
+      id: 'comment-2',
+      content: 'Ini adalah komentar kedua',
+      createdAt: '2021-06-21T07:00:00.000Z',
+      owner: {
+        id: 'users-2',
+        name: 'Cios Does',
+        avatar: 'https://generated-image-url.jpg',
       },
-      "upVotesBy": [],
-      "downVotesBy": []
+      upVotesBy: [],
+      downVotesBy: [],
     }];
 
     const action = {
@@ -124,5 +134,4 @@ describe('comment reducer function', () => {
       downVotesBy: [action.payload.userId],
     }]);
   });
-
 });

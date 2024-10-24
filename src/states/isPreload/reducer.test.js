@@ -1,5 +1,12 @@
 import isPreLoadReducer from './reducer';
-import api from '../../utils/api';
+
+/**
+ * test scenario for isPreLoadReducer
+ *
+ *  - isPreLoadReducer function
+ *  - should return the initial state when given by unknown action
+ *  - should return false when given by SET_IS_PRELOAD and isPreload in action is false
+*/
 
 describe('isPreload reducer function', () => {
   it('should return the initial state when given by unknown action', () => {
@@ -14,9 +21,9 @@ describe('isPreload reducer function', () => {
       type: 'SET_IS_PRELOAD',
       payload: {
         isPreLoad: false,
-      }
-    }
+      },
+    };
     const nextState = isPreLoadReducer(false, action);
     expect(nextState).toEqual(action.payload.isPreLoad);
-  })
+  });
 });

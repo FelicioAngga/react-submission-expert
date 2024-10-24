@@ -3,12 +3,20 @@ import api from '../../utils/api';
 import { setAuthUserActionCreator } from '../authUser/action';
 import { asyncPreloadProcess, setIsPreloadActionCreator } from './action';
 
+/**
+ * test scenario
+ *
+ *  - asyncPreloadProcess thunk
+ *  - should dispatch action correctly when preload success and finally set preload to false
+ *  - should dispatch action and call alert correctly when preload failed
+*/
+
 const fakeErrorResponse = new Error('Token maximum age exceeded');
 const fakeOwnProfile = {
-  "id": "john_doe",
-  "name": "John Doe",
-  "email": "john@example.com",
-  "avatar": "https://generated-image-url.jpg"
+  id: 'john_doe',
+  name: 'John Doe',
+  email: 'john@example.com',
+  avatar: 'https://generated-image-url.jpg',
 };
 
 describe('asyncPreloadProcess thunk', () => {
@@ -23,7 +31,7 @@ describe('asyncPreloadProcess thunk', () => {
   it('should dispatch action correctly when preload success and finally set preload to false', async () => {
     api.getOwnProfile = () => Promise.resolve(fakeOwnProfile);
     const dispatch = jest.fn();
-    
+
     await asyncPreloadProcess()(dispatch);
     expect(dispatch).toHaveBeenCalledWith(showLoading());
     expect(dispatch).toHaveBeenCalledWith(setAuthUserActionCreator(fakeOwnProfile));
@@ -31,7 +39,7 @@ describe('asyncPreloadProcess thunk', () => {
     expect(dispatch).toHaveBeenCalledWith(hideLoading());
   });
 
-  it('should dispatch action and call alert correctly when preload failed and ', async () => {
+  it('should dispatch action and call alert correctly when preload failed ', async () => {
     api.getOwnProfile = () => Promise.reject(fakeErrorResponse);
     const dispatch = jest.fn();
     window.alert = jest.fn();
